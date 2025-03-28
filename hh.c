@@ -11,15 +11,15 @@ getmaxyx(stdscr, h, w);
 
 int nlines= 20 ; // vertical size of the screen
 int ncols = 20;  // horizontal size of the screen
-int x0= (w/2)-(0.5*ncols) ;       // x-coordinate of top left corner of the screen set to center of terminal
-int y0 = (h/2)-(0.5*nlines)  ;      // y-coordinate of top left corner of the screen set to center of terminal
+int x0= (w/2)-(0.5*ncols) ;       // x-coordinate of top left corner of the window set to center of terminal
+int y0 = (h/2)-(0.5*nlines)  ;      // y-coordinate of top left corner of the window set to center of terminal
 
    if(nlines>=h) {    // height adjusted if snake box is taller than terminal
       nlines=h-4;
       ncols=h-4;
       }
    
-   if(cols>=w) {       //  width adjusted if snake box is wider than terminal
+   if(ncols>=w) {       //  width adjusted if snake box is wider than terminal
       ncols=w-4;
       nlines=w-4;
       }
