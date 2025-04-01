@@ -34,7 +34,7 @@ box(win, 105, 105);                           // creating play box
    wrefresh(win);
 
  
-getch():
+getch();
 endwin();
 
 
