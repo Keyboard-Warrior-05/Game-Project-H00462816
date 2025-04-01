@@ -33,6 +33,9 @@ WINDOW * win = newwin(nlines, ncols, y0, x0); // creating window
 box(win, 105, 105);                           // creating play box
    wrefresh(win);
 
+ 
+getch():
+endwin();
 
 
 
