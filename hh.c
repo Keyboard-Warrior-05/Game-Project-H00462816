@@ -60,7 +60,7 @@ box(win, 0, 0);                           // creating play box
       snakey+=diry;
       mvaddstr(snakex, snakey, "%");
       mvaddstr(fruitx, fruity, "@");
-      usleep(200000);
+      usleep(200000);}
       endwin();
     return 0;
    
