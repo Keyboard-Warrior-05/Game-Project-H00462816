@@ -33,9 +33,36 @@ WINDOW * win = newwin(nlines, ncols, y0, x0); // creating window
 box(win, 105, 105);                           // creating play box
    wrefresh(win);
 
+    int ch;
+    while ((ch = getch()) != 'q') { // Wait for 'q' key to exit
+        // Handle special keys (e.g., arrow keys)
+        switch (ch) {
+            case KEY_UP:
+                mvwprintw(win, 1, 1, "Up key pressed   ");
+                break;
+            case KEY_DOWN:
+                mvwprintw(win, 2, 1, "Down key pressed ");
+                break;
+            case KEY_LEFT:
+                mvwprintw(win, 3, 1, "Left key pressed ");
+                break;
+            case KEY_RIGHT:
+                mvwprintw(win, 4, 1, "Right key pressed");
+                break;
+            default:
+                mvwprintw(win, 5, 1, "Key pressed: %c  ", ch);
+                break;
+        }
+        wrefresh(win);
+    }
+    delwin(win);              // Delete the window
+    endwin();                 // Restore terminal settings
+
+    return 0;
+}
+
  
-getch();
-endwin();
+
 
 
 
