@@ -33,15 +33,14 @@ int y0 = (h/2)-(0.5*nlines)  ;      // y-coordinate of top left corner of the wi
 WINDOW * win = newwin(nlines, ncols, y0, x0); // creating window
    refresh();
    
-box(win, 0, 0);                           // creating play box
 
    // snake moving mechanism
-   int snakex;  // snake head x-position
-   int snakey;  //snake head y-position
-   int dirx;   // x-directiom
-   int diry;    // y-direction
-   int fruitx; // fruit x-position
-   int fruity; //fruit y-position
+   int snakex=0;  // snake head x-position
+   int snakey=0;  //snake head y-position
+   int dirx=1;   // x-directiom
+   int diry=0;    // y-direction
+   int fruitx=rand() % nlines; // fruit x-position
+   int fruity=rand() % ncols; //fruit y-position
    int pressed= wgetch(win);
    while(true) {
       if (pressed==KEY_LEFT){
