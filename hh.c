@@ -29,40 +29,41 @@ int y0 = (h/2)-(0.5*nlines)  ;      // y-coordinate of top left corner of the wi
       }
 
 
-
    
 WINDOW * win = newwin(nlines, ncols, y0, x0); // creating window
    refresh();
    
-box(win, 105, 105);                           // creating play box
-   wrefresh(win);
+box(win, 0, 0);                           // creating play box
 
-    int ch;
-    while ((ch = getch()) != 'q') { // Wait for 'q' key to exit
-        // Handle special keys (e.g., arrow keys)
-        switch (ch) {
-            case KEY_UP:
-                mvwprintw(win, 1, 1, "Up key pressed   ");
-                break;
-            case KEY_DOWN:
-                mvwprintw(win, 2, 1, "Down key pressed ");
-                break;
-            case KEY_LEFT:
-                mvwprintw(win, 3, 1, "Left key pressed ");
-                break;
-            case KEY_RIGHT:
-                mvwprintw(win, 4, 1, "Right key pressed");
-                break;
-            default:
-                mvwprintw(win, 5, 1, "Key pressed: %c  ", ch);
-                break;
-        }
-        wrefresh(win);
-    }
-    delwin(win);              // Delete the window
-    endwin();                 // Restore terminal settings
-
+   // snake moving mechanism
+   int snakex;  // snake head x-position
+   int snakey;  //snake head y-position
+   int dirx;   // x-directiom
+   int diry;    // y-direction
+   int fruitx; // fruit x-position
+   int fruity; //fruit y-position
+   int pressed= wgetch(win);
+   while(true) {
+      if (pressed==KEY_LEFT){
+         dirx=-1;
+         diry=0;   }
+       if (pressed==KEY_RIGHT){
+         dirx=1;
+         diry=0;   }
+       if (pressed==KEY_UP){
+         dirx=0;
+         diry=1;   }
+       if (pressed==KEY_DOWN){
+         dirx=0;
+         diry=-1;   }
+      snakex+=dirx;
+      snakey+=diry;
+      mvaddstr(snakex, snakey, "%");
+      mvaddstr(fruitx, fruity, "@");
+      usleep(200000);
+      endwin();
     return 0;
+   
 }
 
  
