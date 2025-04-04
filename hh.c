@@ -6,6 +6,10 @@
 int main() {
 
    initscr();     // terminal screen
+   cbreak();               // Disable line buffering
+    noecho();               // Don't echo key presses to the screen
+    keypad(stdscr, TRUE);   // Enable special keys (e.g., arrow keys)
+
 int h, w;         // height and width of terminal screen
 getmaxyx(stdscr, h, w);
 
