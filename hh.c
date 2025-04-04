@@ -70,4 +70,4 @@ box(win, 105, 105);                           // creating play box
 
 
 
-}
+
