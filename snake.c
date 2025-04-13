@@ -55,7 +55,7 @@ directiony=-1;}
 
   if(snakeheadx<0 || snakeheadx>max_x || snakeheady<0 || snakeheady>max_x)
 { erase();
-  mvprintw(max_y/2, max_x/2, Game Over!);
+  mvprintw(max_y/2, max_x/2, "Game Over!");
 
 erase();
 mvaddstr(snakeheady, snakeheadx, "O");
