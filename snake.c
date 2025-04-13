@@ -11,8 +11,15 @@ keypad(win, true); // allows for keyboard input
 nodelay(win, true); // to make program continue running without waitinng for user input
 curs_set(0);         // hides cursor
 
-int snakeheadx=0;// snakehead starting coordinates
-int snakeheady=0;
+  
+int max_y;  //window maximum width
+int max_x;  // window maximum height
+getmaxyx(stdscr, max_y, max_x);      // this function gets the maximum height and width of playing window
+
+
+  
+int snakeheadx=max_x/2;// snakehead starting coordinates
+int snakeheady=max_y/2;
 int directionx=1;// snake starting direction
 int directiony=0;
 int foodx=0;      // food starting coordinates
@@ -46,10 +53,18 @@ directiony=-1;}
   snakeheadx+=directionx;
   snakeheady+=directiony;
 
+  if(snakeheadx<0 || snakeheadx>max_x || snakeheady<0 || snakeheady>max_x)
+{ erase();
+  mvprintw(max_y/2, max_x/2, Game Over!);
+
 erase();
 mvaddstr(snakeheady, snakeheadx, "O");
 mvaddstr(foody, foodx, "*");
 usleep(200000);}
+
+
+  
+  
 
 return 0;
 }
