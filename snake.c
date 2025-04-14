@@ -118,6 +118,11 @@ directiony=-1;}
 
       goto end_game;
       }}
+}
+
+    end_game:;
+    if(!play_again){
+      endwin();}
      
     
 
