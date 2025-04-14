@@ -50,7 +50,7 @@ mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
   while(true){
     choice= wgetch(win);
     if(choice=='1' || choice=='2' || choice=='3' || choice=='4' || choice=='5'){
-      break;}}
+      break;}
     if(choice=='1'){
       delay=200000;}
     else if(choice=='2'){
@@ -61,7 +61,7 @@ mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
       delay=40000;}
   else if(choice=='5'){
     delay=20000;}
-      
+  }
   
   
 
