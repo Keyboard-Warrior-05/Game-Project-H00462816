@@ -24,6 +24,7 @@ int directionx=1;// snake starting direction
 int directiony=0;
 int foodx=0;      // food starting coordinates
 int foody=0;
+int score=0;    // score counter
 
 while(true){       // playing mechanism
   
@@ -53,14 +54,28 @@ directiony=-1;}
   snakeheadx+=directionx;
   snakeheady+=directiony;
 
-  if(snakeheadx<0 || snakeheadx>max_x || snakeheady<0 || snakeheady>max_x)
-{ erase();
-  mvprintw(max_y/2, max_x/2, "Game Over!");}
+  if(snakeheadx==foodx && snakeheady==foody){ // fruit spawning mechanism
+    score+=10;
+    foodx=rand() % max_x;
+    foody=rand() % max_y;
 
+  if(snakeheadx<0){           // snake wrapping logic
+    snakeheadx=max_x-1;}
+  if(snakeheadx>max_x){
+    snakeheadx=0}
+  
+   if(snakeheady<0){
+    snakeheady=max_y-1;}
+  if(snakeheady>max_y){
+    snakeheady=0}
+
+  
 erase();
 mvaddstr(snakeheady, snakeheadx, "O");
 mvaddstr(foody, foodx, "*");
 usleep(200000);}
+
+  
 
 
   
