@@ -28,7 +28,7 @@ snakey[0] = 10;
 int directionx=1;// snake starting direction
 int directiony=0;
 int foodx=rand() % max_x;      // food starting coordinates
-int foody=(rand() % max_y)+1;
+int foody=(rand() % (max_y-1))+1;
 int score=0;    // score counter
 
 while(true){       // playing mechanism
@@ -75,8 +75,10 @@ directiony=-1;}
     score+=10;
     if(snakelength < max_segments)  // increase the length of the snake and respwans the food 
     snakelength++;
-    foodx=(rand() % (max_x/2))*2; // to make sure food x-coordinate is even as the x-movement is in increments of two
-    foody=(rand() % max_y)+1;}    // to make sure food doesnt spawn on score row  
+    foodx=(rand() % max_x);
+    if(foodx % 2 !=0){
+      foodx++;}// to make sure food x-coordinate is even as the x-movement is in increments of two
+    foody=(rand() % (max_y-1))+1;}    // to make sure food doesnt spawn on score row  
 
   if(snakex[0]<0){           // snake wrapping logic
     snakex[0]=max_x;}
