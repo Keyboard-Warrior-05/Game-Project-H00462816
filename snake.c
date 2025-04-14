@@ -22,8 +22,8 @@ int max_segments= (max_x*max_y)-1;  // calculates maximum snake size based on sc
 int snakex[max_segments];           // x-coordinate of snake segments
 int snakey[max_segments];           // y-coordinate of snake segments
 int snakelength=1;                  // initial snake length
-snakex[0] = max_x/2;// snakehead starting coordinates
-snakey[0] = max_y/2;
+snakex[0] = 10 ;// snakehead starting coordinates
+snakey[0] = 10;
 
 int directionx=1;// snake starting direction
 int directiony=0;
@@ -76,7 +76,7 @@ directiony=-1;}
     if(snakelength < max_segments)  // increase the length of the snake and respwans the food 
     snakelength++;
     foodx=(rand() % (max_x/2))*2; // to make sure food x-coordinate is even as the x-movement is in increments of two
-    foody=(rand() % max_y)+1;}
+    foody=(rand() % max_y)+1;}    // to make sure food doesnt spawn on score row  
 
   if(snakex[0]<0){           // snake wrapping logic
     snakex[0]=max_x;}
