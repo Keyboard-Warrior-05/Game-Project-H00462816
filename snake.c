@@ -49,7 +49,7 @@ mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
 
   while(true){
     choice= wgetch(win);
-    if(choice=='1' || choice=='2' || choice=='3' || choice=='4' || choice='5'){
+    if(choice=='1' || choice=='2' || choice=='3' || choice=='4' || choice=='5'){
       break;}}
     if(choice=='1'){
       delay=200000;}
@@ -102,7 +102,7 @@ directiony=-1;}
       erase();
       mvprintw(max_y/2, max_x/2, "GAME OVER!");
       mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);
-      mvprintw((max_y/2)-4, max_x/2, "Play again? (y/n)", score);
+      mvprintw((max_y/2)-4, max_x/2, "Play again? (y/n)");
       refresh();
 
       char pchoice;
