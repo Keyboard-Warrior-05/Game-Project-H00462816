@@ -68,24 +68,32 @@ directiony=-1;}
     if(snakelength < max_segments)  // increase the length of the snake and respwans the food 
     snakelength++;
     foodx=rand() % max_x;
-    foody=rand() % max_y;}
+    foody=(rand() % max_y)+1;}
 
   if(snakex[0]<0){           // snake wrapping logic
     snakex[0]=max_x;}
   if(snakex[0]>max_x){
     snakex[0]=0; }
   
-   if(snakey[0]<0){
+   if(snakey[0]<1){
     snakey[0]=max_y;}
   if(snakey[0]>max_y){
-    snakey[0]=0; }
+    snakey[0]=1; }
 
   
 erase();
+
+  mvprintw(0, max_x/2, "score: %d", score) // score counter
+    
   for(int i = 0; i < snakelength; i++){
     mvaddstr(snakey[i], snakex[i], "O");}
 mvaddstr(foody, foodx, "#");
-usleep(200000);}
+
+  //to fix difference between verical and horizantal speed
+  if(directionx=1){
+    usleep(100000);}
+  else{
+usleep(200000);}}
 
   
 
