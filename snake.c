@@ -33,6 +33,32 @@ if(foodx%2 != 0){
 int foody=(rand() % (max_y-1))+1;
 int score=0;    // score counter
 
+// difficulty choosing mechanism
+int choice;
+int delay; //(usleep value that determines snake speed)
+erase();
+mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
+ mvprintw((max_y/2)-2, max_x/2, "1. Easy");
+ mvprintw((max_y/2), max_x/2, "2. Medium");
+  mvprintw((max_y/2)+2, max_x/2, "3. Hard");
+  mvprintw((max_y/2)+4, max_x/2, "4. INSANE!");
+
+  while(true){
+    choice= wgetch(win);
+    if(choice=='1' || choice=='2' || choice=='3' || choice=='4'){
+      break;}}
+    if(choice=='1'){
+      delay=200000;}
+    else if(choice=='2'){
+      delay=150000;}
+    else if(choice=='3'){
+      delay=100000;}
+    else if(choice=='4'){
+      delay=40000;}
+      
+  
+  
+
 while(true){       // playing mechanism
   
 int pressed= wgetch(win);// gets user input from window
@@ -70,6 +96,7 @@ directiony=-1;}
       erase();
       mvprintw(max_y/2, max_x/2, "GAME OVER!");
       mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);
+      usleep(10000000) // pause for 10 seconds
     return 0;}}
     
 
@@ -100,7 +127,7 @@ erase();
   for(int i = 0; i < snakelength; i++){
     mvaddstr(snakey[i], snakex[i], "O");}
 mvaddstr(foody, foodx, "#");
-usleep(200000);}
+usleep(delay);}
 
 
 
