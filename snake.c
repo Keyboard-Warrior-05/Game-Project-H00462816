@@ -83,7 +83,7 @@ directiony=-1;}
   
 erase();
 
-  mvprintw(0, max_x/2, "score: %d", score) // score counter
+  mvprintw(0, max_x/2, "score: %d", score); // score counter
     
   for(int i = 0; i < snakelength; i++){
     mvaddstr(snakey[i], snakex[i], "O");}
