@@ -60,8 +60,8 @@ directiony=-1;}
     snakex[i]=snakex[i-1];
     snakey[i]=snakey[i-1];  }
 
-  snakex[0]+=directionx*2;
-  snakey[0]+=directiony;
+  snakex[0]+=directionx;
+  snakey[0]+=directiony/2;
 
   if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
     score+=10;
