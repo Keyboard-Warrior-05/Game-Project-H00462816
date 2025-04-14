@@ -6,6 +6,9 @@
 
 
 int main() {
+  int play_again=1;
+
+  while (play_again){
 
 WINDOW * win= initscr(); // initializes terminal screen
 keypad(win, true); // allows for keyboard input
@@ -41,11 +44,12 @@ mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
  mvprintw((max_y/2)-2, max_x/2, "1. Easy");
  mvprintw((max_y/2), max_x/2, "2. Medium");
   mvprintw((max_y/2)+2, max_x/2, "3. Hard");
-  mvprintw((max_y/2)+4, max_x/2, "4. INSANE!");
+  mvprintw((max_y/2)+4, max_x/2, "4. INSANE");
+  mvprintw((max_y/2)+6, max_x/2, "5. HAVOC!");
 
   while(true){
     choice= wgetch(win);
-    if(choice=='1' || choice=='2' || choice=='3' || choice=='4'){
+    if(choice=='1' || choice=='2' || choice=='3' || choice=='4' || choice='5'){
       break;}}
     if(choice=='1'){
       delay=200000;}
@@ -55,6 +59,8 @@ mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
       delay=100000;}
     else if(choice=='4'){
       delay=40000;}
+  else if(choice=='5'){
+    delay=20000;}
       
   
   
@@ -96,10 +102,24 @@ directiony=-1;}
       erase();
       mvprintw(max_y/2, max_x/2, "GAME OVER!");
       mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);
+      mvprintw((max_y/2)-4, max_x/2, "Play again? (y/n)", score);
       refresh();
-      usleep(10000000); // pause for 10 seconds
+
+      char pchoice;
+      while(true){
+        pchoice= wgetch(win);
+        if (pchoice=='y' || pchoice=='n' ){
+          break;}}
+
+      if(choice=='y'){
+        play_again=1;}
+      else{
+        play_again=0;}
       endwin();
-    return 0;}}
+      break;}}
+
+  if(!play_again) {break;}
+     
     
 
   if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
@@ -130,7 +150,7 @@ erase();
     mvaddstr(snakey[i], snakex[i], "O");}
 mvaddstr(foody, foodx, "#");
 usleep(delay);}
-
+  }
 
 
   
