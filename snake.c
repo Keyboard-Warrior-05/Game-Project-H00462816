@@ -60,14 +60,14 @@ directiony=-1;}
     snakex[i]=snakex[i-1];
     snakey[i]=snakey[i-1];  }
 
-  snakex[0]+=directionx;
-  snakey[0]+=directiony/2;
+  snakex[0]+=directionx*2;  //to fix difference between verical and horizantal speed
+  snakey[0]+=directiony;
 
   if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
     score+=10;
     if(snakelength < max_segments)  // increase the length of the snake and respwans the food 
     snakelength++;
-    foodx=rand() % max_x;
+    foodx=(rand() % (max_x/2))*2; // to make sure food x-coordinate is even as the x-movement is in increments of two
     foody=(rand() % max_y)+1;}
 
   if(snakex[0]<0){           // snake wrapping logic
@@ -88,11 +88,6 @@ erase();
   for(int i = 0; i < snakelength; i++){
     mvaddstr(snakey[i], snakex[i], "O");}
 mvaddstr(foody, foodx, "#");
-
-  //to fix difference between verical and horizantal speed
-//  if(directionx=1){
-  //  usleep(100000);}
-//  else{
 usleep(200000);}
 
   
