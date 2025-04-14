@@ -90,9 +90,9 @@ erase();
 mvaddstr(foody, foodx, "#");
 
   //to fix difference between verical and horizantal speed
-  if(directionx=1){
-    usleep(100000);}
-  else{
+//  if(directionx=1){
+  //  usleep(100000);}
+//  else{
 usleep(200000);}}
 
   
