@@ -60,12 +60,12 @@ directiony=-1;}
     foody=rand() % max_y;}
 
   if(snakeheadx<0){           // snake wrapping logic
-    snakeheadx=max_x-1;}
+    snakeheadx=max_x;}
   if(snakeheadx>max_x){
     snakeheadx=0; }
   
    if(snakeheady<0){
-    snakeheady=max_y-1;}
+    snakeheady=max_y;}
   if(snakeheady>max_y){
     snakeheady=0; }
 
