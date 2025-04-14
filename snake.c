@@ -68,7 +68,7 @@ directiony=-1;}
       erase();
       mvprintw(max_y/2, max_x/2, "GAME OVER!");
       mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);
-    return 0;}
+    return 0;}}
     
 
   if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
