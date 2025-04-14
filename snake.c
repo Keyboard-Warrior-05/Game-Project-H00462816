@@ -117,13 +117,8 @@ directiony=-1;}
       else{
         play_again=0;}
 
-      goto end_game;
       }}
 }
-
-    end_game:;
-    if(!play_again){
-      endwin();}
      
     
 
