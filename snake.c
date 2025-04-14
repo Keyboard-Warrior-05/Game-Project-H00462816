@@ -154,7 +154,7 @@ erase();
     mvaddstr(snakey[i], snakex[i], "O");}
 mvaddstr(foody, foodx, "#");
 usleep(delay);}
-  }
+  
 
 
   
