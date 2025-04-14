@@ -111,14 +111,13 @@ directiony=-1;}
         if (pchoice=='y' || pchoice=='n' ){
           break;}}
 
-      if(choice=='y'){
+      if(pchoice=='y'){
         play_again=1;}
       else{
         play_again=0;}
-      endwin();
-      break;}}
 
-  if(!play_again) {break;}
+      goto end_game;
+      }}
      
     
 
