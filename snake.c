@@ -3,7 +3,7 @@
 #include <ncurses.h>// Library used for window creation, cursor movemen and keyboar input
 #include <stdlib.h> // Library used for rand function 
 #include <unistd.h> // Library used for usleep function
-#define MAX_SEGMENTS 
+
 
 int main() {
 
@@ -22,9 +22,9 @@ int max_segments= (max_x*max_y)-1;  // calculates maximum snake size based on sc
 int snakex[max_segments];           // x-coordinate of snake segments
 int snakey[max_segments];           // y-coordinate of snake segments
 int snakelength=1;                  // initial snake length
+snakex[0] = max_x/2;// snakehead starting coordinates
+snakey[0] = max_y/2;
 
-int snakex[0]=max_x/2;// snakehead starting coordinates
-int snakey[0]y=max_y/2;
 int directionx=1;// snake starting direction
 int directiony=0;
 int foodx=0;      // food starting coordinates
@@ -70,20 +70,20 @@ directiony=-1;}
     foodx=rand() % max_x;
     foody=rand() % max_y;}
 
-  if(snakeheadx<0){           // snake wrapping logic
-    snakeheadx=max_x;}
-  if(snakeheadx>max_x){
-    snakeheadx=0; }
+  if(snakex[0]<0){           // snake wrapping logic
+    snakex[0]=max_x;}
+  if(snakex[0]>max_x){
+    snakex[0]=0; }
   
-   if(snakeheady<0){
-    snakeheady=max_y;}
-  if(snakeheady>max_y){
-    snakeheady=0; }
+   if(snakey[0]<0){
+    snakey[0]=max_y;}
+  if(snakey[0]>max_y){
+    snakey[0]=0; }
 
   
 erase();
   for(int i = 0; i < snakelength; i++){
-    mvaddstr(snakey[i], snakex[i], "O");
+    mvaddstr(snakey[i], snakex[i], "O");}
 mvaddstr(foody, foodx, "#");
 usleep(200000);}
 
