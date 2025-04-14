@@ -98,7 +98,6 @@ erase();
 mvaddstr(foody, foodx, "#");
 usleep(200000);}
 
-}
 
 
   
