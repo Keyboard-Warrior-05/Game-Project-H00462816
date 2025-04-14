@@ -60,8 +60,15 @@ directiony=-1;}
     snakex[i]=snakex[i-1];
     snakey[i]=snakey[i-1];  }
 
-  snakex[0]+=directionx*2;  //to fix difference between verical and horizantal speed
+  snakex[0]+=directionx*2;  //to update snake position, multiplied by 2 to fix difference between verical and horizantal speed
   snakey[0]+=directiony;
+
+  for(int i=1; i< snakelength; i++){                   // to detect self collision
+    if(snakex[0]==snakex[i] && snakey[0]==snakey[i]){
+      erase();
+      mvprintw(max_y/2, max_x/2, "GAME OVER!")
+      mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);}
+    
 
   if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
     score+=10;
