@@ -11,6 +11,7 @@ int main() {
   while (play_again){
 
 WINDOW * win= initscr(); // initializes terminal screen
+noecho();
 keypad(win, true); // allows for keyboard input
 nodelay(win, true); // to make program continue running without waitinng for user input
 curs_set(0);         // hides cursor
@@ -50,7 +51,7 @@ mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
   while(true){
     choice= wgetch(win);
     if(choice=='1' || choice=='2' || choice=='3' || choice=='4' || choice=='5'){
-      break;}
+      break;}}
     if(choice=='1'){
       delay=200000;}
     else if(choice=='2'){
@@ -61,7 +62,7 @@ mvprintw((max_y/2)-4, max_x/2, "Select difficulty level:");
       delay=40000;}
   else if(choice=='5'){
     delay=20000;}
-  }
+  
   
   
 
