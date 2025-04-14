@@ -6,9 +6,6 @@
 
 
 int main() {
-  int play_again=1;
-
-  while (play_again){
 
 WINDOW * win= initscr(); // initializes terminal screen
 noecho();
@@ -106,19 +103,8 @@ directiony=-1;}
       mvprintw((max_y/2)-4, max_x/2, "Play again? (y/n)");
       refresh();
 
-      char pchoice;
-      while(true){
-        pchoice= wgetch(win);
-        if (pchoice=='y' || pchoice=='n' ){
-          break;}}
-
-      if(pchoice=='y'){
-        play_again=1;}
-      else{
-        play_again=0;}
-
       }}
-}
+
      
     
 
