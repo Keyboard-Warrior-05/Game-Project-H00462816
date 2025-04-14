@@ -27,7 +27,9 @@ snakey[0] = 10;
 
 int directionx=1;// snake starting direction
 int directiony=0;
-int foodx=rand() % max_x;      // food starting coordinates
+int foodx=rand() % max_x;  
+if(food%2 != 0){
+  foodx--;}// food starting coordinates
 int foody=(rand() % (max_y-1))+1;
 int score=0;    // score counter
 
