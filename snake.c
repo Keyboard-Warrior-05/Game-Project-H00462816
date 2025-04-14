@@ -3,6 +3,7 @@
 #include <ncurses.h>// Library used for window creation, cursor movemen and keyboar input
 #include <stdlib.h> // Library used for rand function 
 #include <unistd.h> // Library used for usleep function
+#define MAX_SEGMENTS 
 
 int main() {
 
@@ -17,9 +18,13 @@ int max_x;  // window maximum height
 getmaxyx(stdscr, max_y, max_x);      // this function gets the maximum height and width of playing window
 
 
-  
-int snakeheadx=max_x/2;// snakehead starting coordinates
-int snakeheady=max_y/2;
+int max_segments= (max_x*max_y)-1;  // calculates maximum snake size based on screen size
+int snakex[max_segments];           // x-coordinate of snake segments
+int snakey[max_segments];           // y-coordinate of snake segments
+int snakelength=1;                  // initial snake length
+
+int snakex[0]=max_x/2;// snakehead starting coordinates
+int snakey[0]y=max_y/2;
 int directionx=1;// snake starting direction
 int directiony=0;
 int foodx=0;      // food starting coordinates
@@ -51,11 +56,17 @@ if(pressed== KEY_UP){
   directionx=0;
 directiony=-1;}
 
-  snakeheadx+=directionx;
-  snakeheady+=directiony;
+  for(int i= snakelength-1; i>0;  i--){
+    snakex[i]=snakex[i-1];
+    snakey[i]=snakey[i-1];  }
 
-  if(snakeheadx==foodx && snakeheady==foody){ // fruit spawning mechanism
+  snakex[0]+=directionx;
+  snakey[0]+=directiony;
+
+  if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
     score+=10;
+    if(snakelength < max_segments)  // increase the length of the snake and respwans the food 
+    snakelength++;
     foodx=rand() % max_x;
     foody=rand() % max_y;}
 
@@ -71,8 +82,9 @@ directiony=-1;}
 
   
 erase();
-mvaddstr(snakeheady, snakeheadx, "O");
-mvaddstr(foody, foodx, "*");
+  for(int i = 0; i < snakelength; i++){
+    mvaddstr(snakey[i], snakex[i], "O");
+mvaddstr(foody, foodx, "#");
 usleep(200000);}
 
   
