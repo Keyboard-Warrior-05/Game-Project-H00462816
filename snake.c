@@ -27,8 +27,8 @@ snakey[0] = max_y/2;
 
 int directionx=1;// snake starting direction
 int directiony=0;
-int foodx=0;      // food starting coordinates
-int foody=0;
+int foodx=rand() % max_x;      // food starting coordinates
+int foody=(rand() % max_y)+1;
 int score=0;    // score counter
 
 while(true){       // playing mechanism
@@ -60,7 +60,7 @@ directiony=-1;}
     snakex[i]=snakex[i-1];
     snakey[i]=snakey[i-1];  }
 
-  snakex[0]+=directionx;
+  snakex[0]+=directionx*2;
   snakey[0]+=directiony;
 
   if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
