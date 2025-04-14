@@ -93,7 +93,7 @@ mvaddstr(foody, foodx, "#");
 //  if(directionx=1){
   //  usleep(100000);}
 //  else{
-usleep(200000);}}
+usleep(200000);}
 
   
 
