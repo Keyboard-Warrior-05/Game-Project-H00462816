@@ -66,8 +66,9 @@ directiony=-1;}
   for(int i=1; i< snakelength; i++){                   // to detect self collision
     if(snakex[0]==snakex[i] && snakey[0]==snakey[i]){
       erase();
-      mvprintw(max_y/2, max_x/2, "GAME OVER!")
-      mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);}
+      mvprintw(max_y/2, max_x/2, "GAME OVER!");
+      mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);
+    return 0;}
     
 
   if(snakex[0]==foodx && snakey[0]==foody){ // fruit spawning mechanism
@@ -97,7 +98,7 @@ erase();
 mvaddstr(foody, foodx, "#");
 usleep(200000);}
 
-  
+}
 
 
   
