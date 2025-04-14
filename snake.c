@@ -96,7 +96,9 @@ directiony=-1;}
       erase();
       mvprintw(max_y/2, max_x/2, "GAME OVER!");
       mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);
+      refresh();
       usleep(10000000); // pause for 10 seconds
+      endwin();
     return 0;}}
     
 
