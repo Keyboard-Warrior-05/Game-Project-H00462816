@@ -102,6 +102,8 @@ directiony=-1;}
       mvprintw((max_y/2)-2, max_x/2, "Final score: %d", score);
       mvprintw((max_y/2)-4, max_x/2, "Play again? (y/n)");
       refresh();
+      usleep(10000000);
+      endwin();
 
       }}
 
